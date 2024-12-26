@@ -1,0 +1,33 @@
+[package]
+name = "cache"
+version = "0.1.0"
+edition = "2021"
+authors = ["Omeje Remmy <remmy.ro@gmail.com>"]
+description = "A flexible in-memory cache implementation with TTL and size limits"
+license = "MIT"
+# repository = "https://github.com/yourusername/simple-rust-cache"
+# documentation = "https://docs.rs/simple-rust-cache"
+readme = "README.md"
+keywords = ["cache", "memory-cache", "ttl", "lru"]
+categories = ["caching", "data-structures"]
+
+[dependencies]
+thiserror = "1.0"
+serde = { version = "1.0", features = ["derive"], optional = true }
+async-trait = "0.1"
+tokio = { version = "1.0", features = ["full"] }
+serde_json = "1.0"
+futures = "0.3"
+
+
+[dev-dependencies]
+criterion = "0.5"
+tempfile = "3.0"
+
+[features]
+default = ["serialization"]
+serialization = ["serde"]
+
+# [[bench]]
+# name = "cache_benchmarks"
+# harness = false
